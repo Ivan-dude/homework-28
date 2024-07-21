@@ -9,18 +9,18 @@ class Product:
 class Shop():
     __file_name = 'products.txt'
     def get_product(self):
-        file = open(self.__file_name, 'r')
-        list_of_products = file.read()
-        file.close()
+        self.file = open(self.__file_name, 'r')
+        list_of_products = self.file.read()
+        self.file.close()
         return list_of_products
 
     def add(self, *products):
         for i in products:
             list_of_products = self.get_product()
             if i.name not in list_of_products:
-                file = open(self.__file_name, 'a')
-                file.write(f'{i}\n')
-                file.close()
+                self.file = open(self.__file_name, 'a')
+                self.file.write(f'{i}\n')
+                self.file.close()
             else:
                 print(f'Продукт {i.name} уже есть в магазине')
 
